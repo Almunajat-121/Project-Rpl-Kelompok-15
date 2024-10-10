@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <link href="sendiri.css" rel="stylesheet">
+    <link href="fontawesome/css/solid.css" rel="stylesheet">
+    <link href="fontawesome/css/fontawesome.css" rel="stylesheet">
+    <title>Manajemen Waktu</title>
+    <style>
+        body {
+            background-image: url('img.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-color: #f8f9fa; /* Fallback color */
+        }
+
+        .table-container {
+            padding: 20px;
+        }
+
+        h1 {
+            font-family: 'Arial', sans-serif;
+            font-weight: bold;
+        }
+
+        .btn-primary {
+            margin-top: 15px;
+        }
+
+        .navbar {
+            background-color: #6c757d;
+        }
+
+        .navbar-brand {
+            color: white;
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+
+        /* Custom width for each column */
+        .col-no {
+            width: 5%;   /* Narrow column for number */
+        }
+
+        .col-title {
+            width: 20%;  /* Column for task title */
+        }
+
+        .col-desc {
+            width: 35%;  /* Wider column for description */
+        }
+
+        .col-deadline {
+            width: 20%;  /* Column for date and time */
+        }
+
+        .col-result {
+            width: 10%;  /* Column for task result */
+        }
+
+        .col-action {
+            width: 10%;  /* Column for actions */
+        }
+
+        .table th, .table td {
+            border: none;
+            padding: 10px 15px;
+        }
+
+        .table th {
+            background-color: #6c757d;
+            color: white;
+        }
+
+        .table td {
+            background-color: #f8f9fa;
+        }
+
+        .btn-sm {
+            padding: 5px 10px;
+            font-size: 12px;
+        }
+
+        /* Sidebar styles */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 250px;
+            height: 100vh;
+            background-color: #6c757d;
+            padding: 20px;
+            border-right: 1px solid #ddd;
+        }
+
+        .sidebar-header {
+            margin-bottom: 20px;
+        }
+
+        .sidebar-header h5 {
+            color: #fff;
+            font-weight: bold;
+        }
+
+        .list-group-item {
+            background-color: transparent;
+            border: none;
+            padding: 10px 15px;
+        }
+
+        .list-group-item:hover {
+            background-color: #4f5d64;
+        }
+
+        .nav-link {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .nav-link:hover {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .fa-solid {
+            margin-right: 10px;
+        }
+
+        /* Main content */
+        .main-content {
+            margin-left: 250px;
+            padding: 20px;
+        }
+        .table td {
+        background-color: rgba(248, 249, 250, 0.8); /* Warna putih abu-abu dengan sedikit transparansi */
+        }
+
+        .table th {
+            background-color: rgba(108, 117, 125, 0.9); /* Warna abu-abu gelap dengan sedikit transparansi */
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg shadow-sm">
+        <div class="container-fluid">
+            <a class="navbar-brand ms-2">Manajemen Waktu</a>
+        </div>
+    </nav>
+
+
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="container mt-4 ms-2">
+            <h1 class="mt-3">
+                <figure>
+                    <blockquote class="blockquote">
+                        </p>
+                    </blockquote>
+                    <figcaption class="blockquote-footer">
+                       Form Tugas 
+                    </figcaption>
+                </figure>
+            </h1>
+        </div>
+
+        <!-- Tabel Tugas -->
+        <div class="container table-container mt-3 ">
+            <form>
+                <div class="mb-3 row">
+                    <label for="judul" class="col-sm-2 col-form-label">
+                        NAMA TUGAS
+                    </label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="judul" placeholder="Masukkan nama tugas">
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label for="mapel" class="col-sm-2 col-form-label">
+                        MATA PELAJARAN
+                    </label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="mapel" placeholder="Masukkan mata pelajaran">
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label for="datetime" class="col-sm-2 col-form-label">
+                        TANGGAL DAN WAKTU
+                    </label>
+                    <div class="col-sm-10">
+                        <input type="datetime-local" class="form-control" id="datetime">
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label for="deskripsi" class="col-sm-2 col-form-label">
+                        DESKRIPSI TUGAS
+                    </label>
+                    <div class="col-sm-10">
+                        <textarea class="form-control" id="deskripsi" rows="5" placeholder="Masukkan deskripsi tugas"></textarea>
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label for="files" class="col-sm-2 col-form-label">
+                        IMPORT HASIL BELAJAR
+                    </label>
+                    <div class="col-sm-10">
+                        <input class="form-control" id="files" type="file">
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <div class="col-sm-10 offset-sm-2">
+                        <button type="submit" class="btn btn-primary mr-2">
+                            <i class="fas fa-check"></i> Selesai
+                        </button>
+                        <button type="reset" class="btn btn-danger ml-2 mt-3">
+                            <i class="fas fa-times"></i> Batalkan
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        
+        <script src="js/bootstrap-datetimepicker.min.js"></script>
+        <script>
+            $(function () {
+                $('#datetimepicker').datetimepicker();
+            });
+        </script>
+                    <!-- Repeat rows as needed -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
+ 
