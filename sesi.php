@@ -56,6 +56,13 @@ if (isset($_GET['status']) && $_GET['status'] == 'updated') {
                 <a href="selesai.php" class="nav-link">
                     <i class="fa-solid fa-check-double"></i>
                     Selesai
+                    <li class="list-group-item">
+    <a href="logout.php" class="nav-link">
+        <i class="fa-solid fa-sign-out-alt"></i>
+        Keluar
+    </a>
+</li>
+
                 </a>
             </li>
         </ul>
