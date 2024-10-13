@@ -41,26 +41,26 @@ if (isset($_GET['status']) && $_GET['status'] == 'updated') {
                 </a>
             </li>
             <li class="list-group-item">
-                <a href="#" class="nav-link">
+                <a href="sesi.php" class="nav-link">
                     <i class="fa-solid fa-calendar"></i>
                     Jadwal
                 </a>
             </li>
             <li class="list-group-item">
-                <a href="#" class="nav-link">
+                <a href="index.php" class="nav-link">
                     <i class="fa-solid fa-tasks"></i>
                     Tugas
                 </a>
             </li>
             <li class="list-group-item">
-                <a href="#" class="nav-link">
+                <a href="selesai.php" class="nav-link">
                     <i class="fa-solid fa-check-double"></i>
                     Selesai
                 </a>
             </li>
         </ul>
     </div>
-
+    
     <!-- Main Content -->
     <div class="main-content">
         <div class="container mt-4 ms-2">

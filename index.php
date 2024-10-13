@@ -40,7 +40,7 @@ $result = $conn->query($query);
                 </a>
             </li>
             <li class="list-group-item">
-                <a href="#" class="nav-link">
+                <a href="sesi.php" class="nav-link">
                     <i class="fa-solid fa-calendar"></i>
                     Jadwal
                 </a>

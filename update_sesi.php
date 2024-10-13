@@ -3,6 +3,15 @@
 session_start();
 include 'db_connect.php';
 
+// Inisialisasi variabel untuk mengisi form
+$id_belajar = '';
+$judul = '';
+$tanggal = '';
+$jam_mulai = '';
+$jam_akhir = '';
+$button_text = 'Update'; // Tombol untuk update
+$action_url = 'update_sesi.php'; // Default untuk mengupdate sesi
+
 // Cek apakah id_belajar diterima dari URL
 if (isset($_GET['id_belajar'])) {
     $id_belajar = intval($_GET['id_belajar']); // Ambil ID dari URL dan pastikan tipe data
@@ -14,6 +23,10 @@ if (isset($_GET['id_belajar'])) {
     // Periksa jika ada data
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc(); // Ambil data sesi belajar
+        $judul = $row['judul'];
+        $tanggal = $row['tanggal'];
+        $jam_mulai = $row['jam_mulai'];
+        $jam_akhir = $row['jam_akhir'];
     } else {
         echo "Sesi belajar tidak ditemukan.";
         exit; // Jika tidak ada data, hentikan eksekusi
@@ -21,32 +34,6 @@ if (isset($_GET['id_belajar'])) {
 } else {
     echo "ID sesi belajar tidak valid.";
     exit; // Jika ID tidak ada, hentikan eksekusi
-}
-
-// Cek apakah form sudah disubmit
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Ambil data dari form
-    $id_belajar = $_POST['id_belajar'];
-    $judul = $_POST['judul'];
-    $tanggal = $_POST['tanggal'];
-    $jam_mulai = $_POST['jam_mulai'];
-    $jam_akhir = $_POST['jam_akhir'];
-    $id_user = $_SESSION['id_user']; // Pastikan pengguna sudah login dan id_user tersimpan di session
-
-    // Query untuk mengupdate data sesi belajar
-    $query = "UPDATE tbl_belajar 
-              SET judul = '$judul', tanggal = '$tanggal', jam_mulai = '$jam_mulai', jam_akhir = '$jam_akhir' 
-              WHERE id_belajar = $id_belajar AND id_user = $id_user";
-
-    // Eksekusi query
-    if ($conn->query($query) === TRUE) {
-        // Redirect ke halaman lain setelah berhasil mengupdate sesi
-        header("Location: sesi.php?status=updated");
-        exit();
-    } else {
-        // Tampilkan pesan error jika gagal
-        echo "Error: " . $query . "<br>" . $conn->error;
-    }
 }
 ?>
 
@@ -56,31 +43,85 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <link href="sendiri.css" rel="stylesheet">
+    <link href="fontawesome/css/solid.css" rel="stylesheet">
+    <link href="fontawesome/css/fontawesome.css" rel="stylesheet">
     <title>Edit Sesi Belajar</title>
 </head>
 <body>
-    <div class="container mt-5">
-        <h1>Edit Sesi Belajar</h1>
-        <form action="update_sesi.php?id_belajar=<?= $id_belajar; ?>" method="POST">
-            <input type="hidden" name="id_belajar" value="<?= $row['id_belajar']; ?>">
-            <div class="mb-3">
-                <label for="tanggal" class="form-label">Tanggal</label>
-                <input type="date" class="form-control" id="tanggal" name="tanggal" value="<?= $row['tanggal']; ?>" required>
-            </div>
-            <div class="mb-3">
-                <label for="judul" class="form-label">Mata Pelajaran</label>
-                <input type="text" class="form-control" id="judul" name="judul" value="<?= htmlspecialchars($row['judul']); ?>" required>
-            </div>
-            <div class="mb-3">
-                <label for="jam_mulai" class="form-label">Jam Mulai</label>
-                <input type="time" class="form-control" id="jam_mulai" name="jam_mulai" value="<?= $row['jam_mulai']; ?>" required>
-            </div>
-            <div class="mb-3">
-                <label for="jam_akhir" class="form-label">Jam Akhir</label>
-                <input type="time" class="form-control" id="jam_akhir" name="jam_akhir" value="<?= $row['jam_akhir']; ?>" required>
-            </div>
-            <button type="submit" class="btn btn-primary">Update</button>
-        </form>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg shadow-sm">
+        <div class="container-fluid">
+            <a class="navbar-brand ms-2">Manajemen Waktu</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="container mt-4 ms-2">
+            <h1 class="mt-3">
+                <figure>
+                    <blockquote class="blockquote">
+                        <p>UBAH SESI BELAJAR</p>
+                    </blockquote>
+                    <figcaption class="blockquote-footer">
+                        Form Sesi Belajar <cite title="Source Title">Manajemen Waktu</cite>
+                    </figcaption>
+                </figure>
+            </h1>
+        </div>
+
+        <!-- Form untuk update sesi -->
+        <div class="container table-container mt-3">
+            <form action="<?= $action_url ?>?id_belajar=<?= $id_belajar ?>" method="POST">
+                <!-- Tambahkan input hidden untuk id_belajar -->
+                <input type="hidden" name="id_belajar" value="<?= $id_belajar ?>">
+
+                <div class="mb-3 row">
+                    <label for="judul" class="col-sm-2 col-form-label">
+                        MATA PELAJARAN
+                    </label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="judul" placeholder="Masukkan mata pelajaran" value="<?= $judul ?>" required>
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label for="tanggal" class="col-sm-2 col-form-label">
+                        TANGGAL
+                    </label>
+                    <div class="col-sm-10">
+                        <input type="date" class="form-control" name="tanggal" value="<?= $tanggal ?>" required>
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label for="jam_mulai" class="col-sm-2 col-form-label">
+                        JAM MULAI
+                    </label>
+                    <div class="col-sm-10">
+                        <input type="time" class="form-control" name="jam_mulai" value="<?= $jam_mulai ?>" required>
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label for="jam_akhir" class="col-sm-2 col-form-label">
+                        JAM AKHIR
+                    </label>
+                    <div class="col-sm-10">
+                        <input type="time" class="form-control" name="jam_akhir" value="<?= $jam_akhir ?>" required>
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <div class="col-sm-10 offset-sm-2">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-check"></i> <?= $button_text ?>
+                        </button>
+                        <button type="reset" class="btn btn-danger ml-2 mt-3">
+                            <i class="fas fa-times"></i> Batalkan
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
     </div>
 </body>
 </html>
