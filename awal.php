@@ -27,7 +27,7 @@
         <div class="content">
             <h1>Selamat Datang di Manajemen Waktu</h1>
             <p>Kelola tugas dan waktu Anda dengan lebih efisien</p>
-            <a href="index.php" class="btn btn-primary">Mulai Sekarang</a>
+            <a href="login.php" class="btn btn-primary">Mulai Sekarang</a>
         </div>
     </div>
 
