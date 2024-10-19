@@ -26,7 +26,7 @@
                 </a>
             </li>
             <li class="list-group-item">
-                <a href="index.php" class="nav-link">
+                <a href="tugas.php" class="nav-link">
                     <i class="fa-solid fa-tasks"></i>
                     Tugas
                 </a>
