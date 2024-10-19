@@ -32,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Jika berhasil, tampilkan alert dan redirect ke index
             echo '<script>
                     alert("Tugas berhasil ditambahkan!");
-                    window.location.href = "index.php"; // Ganti dengan halaman index yang sesuai
+                    window.location.href = "tugas.php"; // Ganti dengan halaman index yang sesuai
                   </script>';
             exit();
         } else {

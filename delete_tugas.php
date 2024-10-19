@@ -31,8 +31,8 @@ if (isset($_GET['id_tugas'])) {
 
     // Eksekusi query
     if ($stmt->execute()) {
-        // Jika berhasil, redirect ke halaman index.php dengan pesan sukses
-        header("Location: index.php?pesan=delete_success");
+        // Jika berhasil, redirect ke halaman tugas.php dengan pesan sukses
+        header("Location: tugas.php?pesan=delete_success");
         exit();
     } else {
         // Jika gagal, tampilkan pesan error
@@ -42,8 +42,8 @@ if (isset($_GET['id_tugas'])) {
     // Tutup statement
     $stmt->close();
 } else {
-    // Jika id_tugas tidak ditemukan di URL, redirect kembali ke index.php
-    header("Location: index.php?pesan=invalid_id");
+    // Jika id_tugas tidak ditemukan di URL, redirect kembali ke tugas.php
+    header("Location: tugas.php?pesan=invalid_id");
     exit();
 }
 ?>
