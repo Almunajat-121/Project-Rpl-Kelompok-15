@@ -21,52 +21,11 @@ if (isset($_GET['status']) && $_GET['status'] == 'updated') {
     <title>Manajemen Waktu</title>
 </head>
 <body>
-    <!-- Navigation Bar -->
-    <nav class="navbar navbar-expand-lg shadow-sm">
-        <div class="container-fluid">
-            <a class="navbar-brand ms-2">Manajemen Waktu</a>
-        </div>
-    </nav>
+
+
 
     <!-- Sidebar -->
-    <div class="sidebar shadow-sm">
-        <div class="sidebar-header">
-            <h5>Menu</h5>
-        </div>
-        <ul class="list-group list-group-flush">
-            <li class="list-group-item">
-                <a href="beranda.php" class="nav-link">
-                    <i class="fa-solid fa-home"></i>
-                    Beranda
-                </a>
-            </li>
-            <li class="list-group-item">
-                <a href="sesi.php" class="nav-link">
-                    <i class="fa-solid fa-calendar"></i>
-                    Jadwal
-                </a>
-            </li>
-            <li class="list-group-item">
-                <a href="index.php" class="nav-link">
-                    <i class="fa-solid fa-tasks"></i>
-                    Tugas
-                </a>
-            </li>
-            <li class="list-group-item">
-                <a href="selesai.php" class="nav-link">
-                    <i class="fa-solid fa-check-double"></i>
-                    Selesai
-                    <li class="list-group-item">
-    <a href="logout.php" class="nav-link">
-        <i class="fa-solid fa-sign-out-alt"></i>
-        Keluar
-    </a>
-</li>
-
-                </a>
-            </li>
-        </ul>
-    </div>
+    <?php include 'sidebar.php' ?>
     
     <!-- Main Content -->
     <div class="main-content">
