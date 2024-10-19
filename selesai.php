@@ -23,12 +23,7 @@ $result = $conn->query($query);
     </style>
 </head>
 <body>
-    <!-- Navigation Bar -->
-    <nav class="navbar navbar-expand-lg shadow-sm">
-        <div class="container-fluid">
-            <a class="navbar-brand ms-2">Manajemen Waktu</a>
-        </div>
-    </nav>
+  
 
     <!-- Sidebar -->
     <?php include 'sidebar.php' ?>
