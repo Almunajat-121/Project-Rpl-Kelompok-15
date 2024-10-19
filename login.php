@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if (password_verify($password, $row['password'])) {
                 $_SESSION['id_user'] = $row['id_user'];
                 $_SESSION['username'] = $row['username'];
-                header('Location: index.php');
+                header('Location: beranda.php');
                 exit();
             } else {
                 $error = "Password salah.";

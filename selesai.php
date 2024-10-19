@@ -45,10 +45,7 @@ $result = $conn->query($query);
 
         <!-- Tabel Tugas -->
         <div class="container table-container mt-3">
-            <a href="kelola.php" class="btn btn-primary mb-2">
-                <i class="fa-solid fa-plus"></i>
-                Tambah Tugas
-            </a>
+           
             <table class="table table-striped table-hover table-bordered table-sm shadow-sm mt-2">
                 <thead>
                     <tr>

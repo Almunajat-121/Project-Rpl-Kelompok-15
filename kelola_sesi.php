@@ -98,9 +98,11 @@ if (isset($_GET['id_belajar'])) {
                         <input type="time" class="form-control" id="jam_akhir" name="jam_akhir" value="<?= $jam_akhir ?>" required>
                     </div>
                 </div>
+                
+                <!-- Tombol untuk simpan dan batalkan -->
                 <button type="submit" class="btn btn-primary"><?= $button_text ?> Sesi Belajar</button>
+                <a href="sesi.php" class="btn btn-danger ml-2 mt-3">Batalkan</a>
         </form>
-
         </div>
     </div>
 </body>

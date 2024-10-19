@@ -39,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if ($update_stmt->affected_rows > 0) {
             echo "Tugas berhasil diselesaikan dan file diupload.";
             // Redirect ke halaman index.php atau halaman yang diinginkan
-            header("Location: index.php");
+            header("Location: selesai.php");
             exit;
         } else {
             echo "Gagal memperbarui status tugas.";
@@ -84,7 +84,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <label for="file_tugas" class="form-label">Upload File Hasil Belajar</label>
                 <input type="file" class="form-control" id="file_tugas" name="file_tugas" required>
             </div>
-            <button type="submit" class="btn btn-primary">Selesaikan Tugas</button>
+            <!-- <button type="submit" class="btn btn-primary">Selesaikan Tugas</button> -->
+            
+    <!-- Tombol batalkan -->
+    <button type="submit" class="btn btn-primary"> Selesaikan Tugas</button>
+                <a href="tugas.php" class="btn btn-danger ml-2 mt-3">Batalkan</a>
+
         </form>
     </div>
 </body>

@@ -115,10 +115,12 @@ if (isset($_GET['id_belajar'])) {
                         <button type="submit" class="btn btn-primary">
                             <i class="fas fa-check"></i> <?= $button_text ?>
                         </button>
-                        <button type="reset" class="btn btn-danger ml-2 mt-3">
-                            <i class="fas fa-times"></i> Batalkan
-                        </button>
-                    </div>
+                      
+                        <a href="sesi.php" class="btn btn-danger ml-2 mt-3">
+                        <i class = "fa fa-trash"></i>    
+                        Batalkan
+                      
+                        </a>
                 </div>
             </form>
         </div>

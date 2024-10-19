@@ -113,10 +113,13 @@ if (isset($_GET['id_tugas'])) {
                     <div class="col-sm-10 offset-sm-2">
                         <button type="submit" class="btn btn-primary mr-2">
                             <i class="fas fa-check"></i> <?= $button_text ?>
-                        </button>
-                        <button type="reset" class="btn btn-danger ml-2 mt-3">
-                            <i class="fas fa-times"></i> Batalkan
-                        </button>
+                            </button>
+                      
+                      <a href="tugas.php" class="btn btn-danger ml-2 mt-3">
+                      <i class = "fa fa-times"></i>    
+                      Batalkan
+                    
+                      </a>
                     </div>
                 </div>
             </form>
