@@ -1,32 +1,37 @@
 <?php
 session_start();
 include 'db_connect.php';
+
+// Inisialisasi variabel untuk pesan error
 $error = '';
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    if (empty($username) || empty($password)) {
-        $error = "Username dan password tidak boleh kosong.";
-    } else {
-        $query = "SELECT * FROM user WHERE username = '$username'";
-        $result = $conn->query($query);
+    // Cek user di database
+    $query = "SELECT * FROM user WHERE username = ?";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param('s', $username);
+    $stmt->execute();
+    $result = $stmt->get_result();
 
-        if ($result->num_rows > 0) {
-            $row = $result->fetch_assoc();
+    if ($result->num_rows > 0) {
+        $user = $result->fetch_assoc();
+        // Verifikasi password
+        if (password_verify($password, $user['password'])) {
+            // Set session
+            $_SESSION['id_user'] = $user['id_user'];
+            $_SESSION['username'] = $user['username'];
 
-            if (password_verify($password, $row['password'])) {
-                $_SESSION['id_user'] = $row['id_user'];
-                $_SESSION['username'] = $row['username'];
-                header('Location: beranda.php');
-                exit();
-            } else {
-                $error = "Password salah.";
-            }
+            // Redirect ke halaman tugas
+            header("Location: tugas.php");
+            exit;
         } else {
-            $error = "Username tidak ditemukan.";
+            $error = "Password salah!";
         }
+    } else {
+        $error = "Username tidak ditemukan!";
     }
 }
 ?>
@@ -49,7 +54,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <h4 class="card-title text-center">Login</h4>
                     </div>
                     <div class="card-body">
-                        <?php if ($error): ?>
+                        <!-- Menampilkan pesan error jika ada -->
+                        <?php if (!empty($error)): ?>
                             <div class="alert alert-danger"><?= $error ?></div>
                         <?php endif; ?>
                         <form action="login.php" method="post">

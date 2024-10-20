@@ -19,8 +19,9 @@ h1 {
 }
 
 
-.navbar 
+.navbar {
     background-color: #6c757d;
+    margin-top: 1px;
 }
 
 .navbar-brand {
@@ -120,6 +121,7 @@ h1 {
 
 /* Main content */
 .main-content {
+    margin-top: 0px;
     margin-left: 250px;
     padding: 20px;
 }
@@ -130,4 +132,3 @@ background-color: rgba(248, 249, 250, 0.8); /* Warna putih abu-abu dengan sediki
 .table th {
     background-color: rgba(108, 117, 125, 0.9); /* Warna abu-abu gelap dengan sedikit transparansi */
 }
-

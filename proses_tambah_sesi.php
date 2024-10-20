@@ -21,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Eksekusi query
     if ($conn->query($query) === TRUE) {
         // Redirect ke halaman lain setelah berhasil menambah sesi
-        header("Location: kelola_sesi.php?status=sukses");
+        header("Location: sesi.php?status=sukses");
         exit();
     } else {
         // Tampilkan pesan error jika gagal

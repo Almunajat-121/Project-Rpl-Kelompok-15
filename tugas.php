@@ -1,10 +1,22 @@
 <?php
 // Panggil koneksi database
+session_start();
 include 'db_connect.php';
 
-// Query untuk mengambil data dari tabel tugas yang statusnya 0
-$query = "SELECT * FROM tbl_tugas WHERE status = 0 ORDER BY tanggal ASC";
-$result = $conn->query($query);
+// Periksa apakah user sudah login
+if (!isset($_SESSION['id_user'])) {
+    header("Location: login.php");
+    exit;
+}
+
+$id_user = $_SESSION['id_user'];
+
+// Query untuk mengambil data dari tabel tugas berdasarkan id_user dan status 0
+$query = "SELECT * FROM tbl_tugas WHERE status = 0 AND id_user = ? ORDER BY tanggal ASC";
+$stmt = $conn->prepare($query);
+$stmt->bind_param('i', $id_user);
+$stmt->execute();
+$result = $stmt->get_result();
 ?>
 
 <!DOCTYPE html>
@@ -21,9 +33,7 @@ $result = $conn->query($query);
 </head>
 <body>
 
-
     <!-- Sidebar -->
-
     <?php include 'sidebar.php' ?>
 
     <!-- Main Content -->
@@ -60,10 +70,8 @@ $result = $conn->query($query);
                 </thead>
                 <tbody>
                     <?php
-                    // Periksa jika ada data di tabel
                     if ($result->num_rows > 0) {
                         $no = 1;
-                        // Loop melalui setiap baris hasil query
                         while ($row = $result->fetch_assoc()) {
                             ?>
                             <tr>
@@ -89,7 +97,6 @@ $result = $conn->query($query);
                             <?php
                         }
                     } else {
-                        // Jika tidak ada data
                         ?>
                         <tr>
                             <td colspan="6" class="text-center">Belum ada tugas yang ditambahkan.</td>

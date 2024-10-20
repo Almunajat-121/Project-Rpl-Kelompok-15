@@ -1,10 +1,22 @@
 <?php
-// koneksi database
-include 'db_connect.php'; // Pastikan koneksi database sudah diatur di db_connect.php
+session_start(); // Memulai sesi
 
-// Ambil data tugas yang telah selesai
-$query = "SELECT * FROM tbl_tugas WHERE status = 1";
-$result = $conn->query($query);
+// Cek apakah user sudah login
+if (!isset($_SESSION['id_user'])) {
+    echo "<script>alert('Silakan login terlebih dahulu!'); window.location.href = 'login.php';</script>";
+    exit;
+}
+
+// Panggil koneksi database
+include 'db_connect.php';
+
+// Ambil data tugas yang telah selesai berdasarkan id_user
+$id_user = $_SESSION['id_user'];
+$query = "SELECT * FROM tbl_tugas WHERE status = 1 AND id_user = ?";
+$stmt = $conn->prepare($query);
+$stmt->bind_param('i', $id_user);
+$stmt->execute();
+$result = $stmt->get_result();
 
 ?>
 
@@ -19,12 +31,9 @@ $result = $conn->query($query);
     <link href="fontawesome/css/solid.css" rel="stylesheet">
     <link href="fontawesome/css/fontawesome.css" rel="stylesheet">
     <title>Manajemen Waktu</title>
-    <style>
-    </style>
 </head>
 <body>
   
-
     <!-- Sidebar -->
     <?php include 'sidebar.php' ?>
 
@@ -45,7 +54,6 @@ $result = $conn->query($query);
 
         <!-- Tabel Tugas -->
         <div class="container table-container mt-3">
-           
             <table class="table table-striped table-hover table-bordered table-sm shadow-sm mt-2">
                 <thead>
                     <tr>
