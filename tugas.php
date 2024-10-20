@@ -37,6 +37,45 @@ $result = $stmt->get_result();
     <?php include 'sidebar.php' ?>
 
     <!-- Main Content -->
+
+    <?php
+// Tangkap parameter 'pesan' dari URL
+if (isset($_GET['pesan'])) {
+    $pesan = $_GET['pesan'];
+}
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar Tugas</title>
+    <script>
+        // Fungsi untuk menampilkan pop-up berdasarkan pesan dari URL
+        function showNotification(pesan) {
+            if (pesan === 'delete_success') {
+                alert('Tugas berhasil dihapus!');
+            } else if (pesan === 'invalid_id') {
+                alert('ID Tugas tidak valid!');
+            }
+        }
+
+        // Cek apakah ada parameter 'pesan' di URL
+        window.onload = function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const pesan = urlParams.get('pesan');
+            if (pesan) {
+                showNotification(pesan);
+            }
+        };
+    </script>
+</head>
+<body>
+    <!-- Konten halaman tugas.php di sini -->
+</body>
+</html>
+
     <div class="main-content">
         <div class="container mt-4 ms-2">
             <h1 class="mt-3">
