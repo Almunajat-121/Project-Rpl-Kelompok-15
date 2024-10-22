@@ -42,7 +42,7 @@
                     <ul>
                         <li>Mengelola tugas dan deadline</li>
                         <li>Mengatur jadwal harian</li>
-                        <li>Mengelola pengaturan aplikasi</li>
+                        <li>Menyimpan file hasil tugas</li>
                     </ul>
                 </div>
             </div>
