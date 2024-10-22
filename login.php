@@ -24,8 +24,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['id_user'] = $user['id_user'];
             $_SESSION['username'] = $user['username'];
 
-            // Redirect ke halaman tugas
-            header("Location: tugas.php");
+            // Redirect ke halaman beranda
+            header("Location: beranda.php");
             exit;
         } else {
             $error = "Password salah!";
