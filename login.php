@@ -24,7 +24,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['id_user'] = $user['id_user'];
             $_SESSION['username'] = $user['username'];
 
+<<<<<<< HEAD
             // Redirect ke halaman tugas
+=======
+            // Redirect ke halaman beranda
+>>>>>>> 720004421bcfcd06bd57c5fd660cf6c6885f9feb
             header("Location: beranda.php");
             exit;
         } else {

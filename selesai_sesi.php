@@ -82,6 +82,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <input type="file" class="form-control" id="file_tugas" name="file_tugas" required>
             </div>
             <button type="submit" class="btn btn-primary">Selesaikan Sesi</button>
+            <a href="sesi.php" class="btn btn-danger ml-2 mt-3">Batalkan</a>
         </form>
     </div>
 </body>
