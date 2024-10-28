@@ -25,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['username'] = $user['username'];
 
             // Redirect ke halaman tugas
-            header("Location: tugas.php");
+            header("Location: beranda.php");
             exit;
         } else {
             $error = "Password salah!";
@@ -66,7 +66,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             <div class="mb-3">
                                 <label for="password" class="form-label">Password</label>
                                 <input type="password" name="password" class="form-control" id="password" required>
+                                
                             </div>
+                         
+                            
+
                             <button type="submit" class="btn btn-primary w-100">Login</button>
                         </form>
                     </div>
