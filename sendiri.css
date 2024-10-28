@@ -1,10 +1,12 @@
 body {
-    background-image: url('img.jpeg');
-    background-size: cover;
-    background-position: center;
+    background-image: url('aas.jpg');
+    background-size:100%;
+    
+   
     background-color: #f8f9fa; /* Fallback color */
+    display: flex;
 }
-
+/* m */
 .table-container {
     padding: 20px;
 }

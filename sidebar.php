@@ -1,8 +1,8 @@
     
 
     
-<!-- 
-    <nav class="navbar navbar-expand-lg shadow-sm">
+
+    <!-- <nav class="navbar navbar-expand-lg shadow-sm">
         <div class="container-fluid">
             <a class="navbar-brand ms-2">Manajemen Waktu</a>
         </div>
@@ -18,11 +18,17 @@
                     <i class="fa-solid fa-home"></i>
                     Beranda
                 </a>
-            </li>
+                </li>
             <li class="list-group-item">
                 <a href="sesi.php" class="nav-link">
                     <i class="fa-solid fa-calendar"></i>
                     Jadwal
+                </a>
+                </li>
+            <li class="list-group-item">
+                <a href="Abdul_Mu'iz_Azizul_Raeba.php" class="nav-link">
+                    <i class="fa-solid fa-home"></i>
+                    Abdul Mu'iz Azizul Raeba
                 </a>
             </li>
             <li class="list-group-item">
