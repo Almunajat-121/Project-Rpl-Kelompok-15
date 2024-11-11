@@ -2,11 +2,11 @@
 
     
 
-    <!-- <nav class="navbar navbar-expand-lg shadow-sm">
+    <nav class="navbar navbar-expand-lg shadow-sm">
         <div class="container-fluid">
             <a class="navbar-brand ms-2">Manajemen Waktu</a>
         </div>
-    </nav> -->
+    </nav>
 
 <div class="sidebar shadow-sm">
         <div class="sidebar-header">
@@ -25,12 +25,7 @@
                     Jadwal
                 </a>
                 </li>
-            <li class="list-group-item">
-                <a href="Abdul_Mu'iz_Azizul_Raeba.php" class="nav-link">
-                    <i class="fa-solid fa-home"></i>
-                    Abdul Mu'iz Azizul Raeba
-                </a>
-            </li>
+
             <li class="list-group-item">
                 <a href="tugas.php" class="nav-link">
                     <i class="fa-solid fa-tasks"></i>
