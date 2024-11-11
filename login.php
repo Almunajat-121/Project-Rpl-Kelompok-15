@@ -8,7 +8,7 @@ $error = '';
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST['username'];
     $password = $_POST['password'];
-
+ 
     // Cek user di database
     $query = "SELECT * FROM user WHERE username = ?";
     $stmt = $conn->prepare($query);
